@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:pendataankelas4b/views/dashboard_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -10,15 +12,15 @@ class LoginView extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 10),
             child: Text(
               'Aplikasi \nPendataan Warga',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
           Stack(
@@ -26,7 +28,7 @@ class LoginView extends StatelessWidget {
               Container(
                 height: 380,
                 child: Card(
-                  margin: EdgeInsets.only(top: 50, left: 20, right: 20),
+                  margin: const EdgeInsets.only(top: 50, left: 20, right: 20),
                   color: Colors.brown[200],
                   child: Column(
                     children: [
@@ -34,7 +36,7 @@ class LoginView extends StatelessWidget {
                         height: 100,
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                         child: TextField(
                           decoration: InputDecoration(
                               border: const OutlineInputBorder(),
@@ -42,24 +44,29 @@ class LoginView extends StatelessWidget {
                               filled: true),
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                         child: TextField(
                           decoration: InputDecoration(
-                              border: const OutlineInputBorder(),
+                              border: OutlineInputBorder(),
                               fillColor: Color.fromARGB(223, 250, 250, 250),
                               filled: true),
                         ),
                       ),
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((c) => DashboardView())));
+                          },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30)),
                               primary: Colors.red),
-                          child: Padding(
+                          child: const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 40),
-                              child: const Text('Login'))),
+                              child: Text('Login'))),
                     ],
                   ),
                 ),
